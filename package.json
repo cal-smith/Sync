@@ -1,0 +1,23 @@
+{
+  "name": "Sync",
+  "version": "0.0.0",
+  "description": "Sync",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hansolo669/Sync.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hansolo669/Sync/issues"
+  },
+  "homepage": "https://github.com/hansolo669/Sync",
+  "dependencies": {
+    "express": "^4.10.3",
+    "socket.io": "^1.2.1"
+  }
+}
