@@ -21,7 +21,6 @@ function start () {
 		}
 		if (data.type == 'soundcloud') {
 			SC.get('/resolve', { url: data.url }, function(track) {
-				console.log(track);
 				SC.stream(track.uri, function(sound){
 					soundcloud(sound, track);
 				});
@@ -104,12 +103,11 @@ function onYouTubePlayerReady(playerId){
 
 function soundcloud (sound, track){
 	console.log(track, track.artwork_url.replace('large', 'original'), track.user.username, track.user.avatar_url.replace('large', 'original'));
-	//sound.load();
-	sync.emit('play', {duration:track.duration/1000, type:'soundcloud'});
 	if (played > 0) {
 		sound.play();
 		sound.setPosition((Date.now() - data.delta) + (data.played * 1000));
 	} else {
+		sync.emit('play', {duration:track.duration/1000, type:'soundcloud'});
 		sound.play();
 	}
 	window.sound = sound;

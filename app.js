@@ -41,7 +41,6 @@ io.on('connection', function (socket) {
 		queue.push(data);
 		if (queue.length == 1 && media.playing == 0) {
 			io.emit('sync', data);
-			socket.broadcast.emit('sync', data);
 			if (media.playing == 0) {
 				media = queue.pop();
 			}
