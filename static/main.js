@@ -56,6 +56,7 @@ function start () {
 			}
 			if (data.type == 'soundcloud' && sound.position >= sound.duration) {
 				//delete sound manager stuff
+				e('media').style.background = "white";
 			}
 		}, 500);
 		function stop(){
@@ -103,6 +104,8 @@ function onYouTubePlayerReady(playerId){
 
 function soundcloud (sound, track){
 	console.log(track, track.artwork_url.replace('large', 'original'), track.user.username, track.user.avatar_url.replace('large', 'original'));
+	e('media').style.background = 'url("'+track.artwork_url.replace('large', 'original')+'")';
+	e('media').style['background-size'] = 'cover';
 	if (played > 0) {
 		sound.play();
 		sound.setPosition((Date.now() - data.delta) + (data.played * 1000));
