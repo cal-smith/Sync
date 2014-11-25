@@ -103,9 +103,8 @@ function onYouTubePlayerReady(playerId){
 }
 
 function soundcloud (sound, track){
-	console.log(track, track.artwork_url.replace('large', 'original'), track.user.username, track.user.avatar_url.replace('large', 'original'));
-	track.user.avatar_url.replace('large', 'original')
-	e('media').style.background = 'url("'+track.artwork_url.replace('large', 'original')+'")';
+	//console.log(track, track.artwork_url.replace('large', 'original'), track.user.username, track.user.avatar_url.replace('large', 'original'));
+	track.artwork_url === null?e('media').style.background = 'url("'+track.user.avatar_url.replace('large', 'original')+'")':e('media').style.background = 'url("'+track.artwork_url.replace('large', 'original')+'")';
 	e('media').style['background-size'] = 'cover';
 	if (played > 0) {
 		sound.play();
