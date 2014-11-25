@@ -2,7 +2,7 @@
 SC.initialize({
 	client_id: "09d14c4e812e7b9f44d72e45b7c86725"
 });
-var sync = io.connect(window.location.origin);
+var sync = io.connect(window.location.origin+':8000');
 var played = 0;
 function start () {
 	sync.on('news', function (data){
@@ -104,6 +104,7 @@ function onYouTubePlayerReady(playerId){
 
 function soundcloud (sound, track){
 	console.log(track, track.artwork_url.replace('large', 'original'), track.user.username, track.user.avatar_url.replace('large', 'original'));
+	track.user.avatar_url.replace('large', 'original')
 	e('media').style.background = 'url("'+track.artwork_url.replace('large', 'original')+'")';
 	e('media').style['background-size'] = 'cover';
 	if (played > 0) {
